@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "me.zihasz.zware.api.mixin.mixins",
+  "refmap": "mixins.cafe.refmap.json",
+  "mixins": [
+
+  ]
+}
