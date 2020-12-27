@@ -2,7 +2,8 @@ package me.zihasz.zware;
 
 import me.yagel15637.blitz.dispatcher.EventDispatcher;
 import me.yagel15637.venture.manager.CommandManager;
-import me.zihasz.zware.impl.command.ExampleCommand;
+import me.zihasz.zware.impl.command.*;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -13,6 +14,8 @@ public class ZWare {
     public static final String MOD_ID = "zware";
     public static final String MOD_NAME = "ZWare";
     public static final String VERSION = "1.0-SNAPSHOT";
+
+    public Minecraft mc = Minecraft.getMinecraft();
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null, and you can use it for non-static variables.
@@ -29,9 +32,8 @@ public class ZWare {
     public void preinit(FMLPreInitializationEvent event) {
         CommandManager.addCommands(
                 new ExampleCommand()
-                // Add more commands here, separated by ,
         );
-//        CommandManager.ignoresCases = false; use this if you hate your users :D
+        //CommandManager.ignoresCases = false; use this if you hate your users :D
     }
 
     /**
