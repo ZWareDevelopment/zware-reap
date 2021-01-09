@@ -74,9 +74,12 @@ processResources {
 shadowJar {
     dependencies {
         include(dependency('club.minnced:java-discord-rpc:2.0.1'))
+
         include(dependency('com.github.yagel15637:blitz'))
         include(dependency('com.github.yagel15637:venture'))
+
         include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
+
         include(dependency('org.spongepowered:mixin'))
     }
     exclude 'dummyThing'

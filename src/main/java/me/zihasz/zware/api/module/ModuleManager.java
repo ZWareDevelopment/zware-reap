@@ -1,6 +1,7 @@
 package me.zihasz.zware.api.module;
 
 import me.zihasz.zware.ZWare;
+import me.zihasz.zware.impl.module.client.*;
 
 import java.util.ArrayList;
 
@@ -9,15 +10,19 @@ public class ModuleManager {
 
     public ModuleManager() {
         ZWare.EVENT_BUS.register(this);
+
+        addMod(new ClickGUIModule());
     }
 
     public void addMod(Module module) {
         modules.add(module);
     }
 
-
     public static void onUpdate() {
         modules.stream().filter(Module::getEnabled).forEach(Module::onUpdate);
+    }
+    public static void onRender() {
+        modules.stream().filter(Module::getEnabled).forEach(Module::onRender);
     }
 
     public static ArrayList<Module> getModules() {

@@ -1,7 +1,10 @@
 package me.zihasz.zware;
 
+import akka.io.Tcp;
 import me.yagel15637.blitz.dispatcher.EventDispatcher;
 import me.yagel15637.venture.manager.CommandManager;
+import me.zihasz.zware.api.event.ForgeEvents;
+import me.zihasz.zware.api.module.ModuleManager;
 import me.zihasz.zware.impl.command.*;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,6 +19,9 @@ public class ZWare {
     public static final String VERSION = "1.0-SNAPSHOT";
 
     public Minecraft mc = Minecraft.getMinecraft();
+
+    public static ForgeEvents forgeEvents;
+    public static ModuleManager moduleManager;
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null, and you can use it for non-static variables.
@@ -41,7 +47,8 @@ public class ZWare {
      */
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-
+        forgeEvents = new ForgeEvents();
+        moduleManager = new ModuleManager();
     }
 
     /**

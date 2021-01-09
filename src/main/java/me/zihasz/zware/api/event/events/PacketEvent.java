@@ -1,8 +1,8 @@
 package me.zihasz.zware.api.event.events;
 
 import me.yagel15637.blitz.modifiers.EventEra;
-import net.minecraft.network.Packet;
 import me.yagel15637.blitz.event.Event;
+import net.minecraft.network.Packet;
 
 public class PacketEvent extends Event {
     private final Packet packet;
@@ -15,7 +15,6 @@ public class PacketEvent extends Event {
     public Packet getPacket() {
         return packet;
     }
-
     public static class Send extends PacketEvent{
         public Send(EventEra era, Packet packet) {
             super(era, packet);
