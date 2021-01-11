@@ -2,6 +2,7 @@ package me.zihasz.zware.api.module;
 
 import me.zihasz.zware.ZWare;
 import me.zihasz.zware.impl.module.client.*;
+import me.zihasz.zware.impl.module.misc.ServerFuckery;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,7 @@ public class ModuleManager {
         ZWare.EVENT_BUS.register(this);
 
         addMod(new ClickGUIModule());
+        addMod(new ServerFuckery());
     }
 
     public void addMod(Module module) {
@@ -29,11 +31,11 @@ public class ModuleManager {
         return modules;
     }
 
-    public static Module getModuleByName(String name) {
+    public Module getModuleByName(String name) {
         return modules.stream().filter(module -> module.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
-    public static boolean isModuleEnabled(String name) {
+    public boolean isModuleEnabled(String name) {
         Module module = getModules().stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
         assert module != null;
         return module.getEnabled();

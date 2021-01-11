@@ -4,6 +4,7 @@ import akka.io.Tcp;
 import me.yagel15637.blitz.dispatcher.EventDispatcher;
 import me.yagel15637.venture.manager.CommandManager;
 import me.zihasz.zware.api.event.ForgeEvents;
+import me.zihasz.zware.api.mixin.MixinLoader;
 import me.zihasz.zware.api.module.ModuleManager;
 import me.zihasz.zware.impl.command.*;
 import net.minecraft.client.Minecraft;
@@ -18,10 +19,13 @@ public class ZWare {
     public static final String MOD_NAME = "ZWare";
     public static final String VERSION = "1.0-SNAPSHOT";
 
-    public Minecraft mc = Minecraft.getMinecraft();
+    public static Minecraft mc = Minecraft.getMinecraft();
+
+    public static String commandsPrefix;
 
     public static ForgeEvents forgeEvents;
     public static ModuleManager moduleManager;
+    public static MixinLoader mixinLoader;
 
     /**
      * This is the instance of your mod as created by Forge. It will never be null, and you can use it for non-static variables.
@@ -37,9 +41,12 @@ public class ZWare {
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         CommandManager.addCommands(
-                new ExampleCommand()
+                // new ExampleCommand()
+                new ToggleCommand(),
+                new BindCommand(),
+                new PrefixCommand()
         );
-        //CommandManager.ignoresCases = false; use this if you hate your users :D
+        mixinLoader = new MixinLoader();
     }
 
     /**

@@ -4,6 +4,7 @@
   "package": "me.zihasz.zware.api.mixin.mixins",
   "refmap": "mixins.cafe.refmap.json",
   "mixins": [
-    "MixinNetworkManager"
+    "MixinNetworkManager",
+    "MixinGuiMainMenu"
   ]
 }
