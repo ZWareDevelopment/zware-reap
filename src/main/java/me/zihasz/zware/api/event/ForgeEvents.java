@@ -36,7 +36,7 @@ public class ForgeEvents {
         if (event.getMessage().startsWith(ZWare.commandsPrefix)) {
             CommandManager.parseCommand(event.getMessage().replaceFirst(ZWare.commandsPrefix, ""));
             event.setCanceled(true);
-            ZWare.mc.ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
+            // ZWare.mc.ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
         }
     }
 }

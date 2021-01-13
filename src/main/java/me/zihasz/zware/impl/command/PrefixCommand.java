@@ -14,3 +14,4 @@ public class PrefixCommand extends AbstractCommand {
         ZWare.commandsPrefix = args[0];
     }
 }
+

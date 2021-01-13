@@ -11,6 +11,6 @@ public class ToggleCommand extends AbstractCommand {
 
     @Override
     public void execute(String[] args) {
-        ZWare.moduleManager.getModuleByName(args[1]).toggle();
+        ZWare.moduleManager.getModuleByName(args[0]).toggle();
     }
 }

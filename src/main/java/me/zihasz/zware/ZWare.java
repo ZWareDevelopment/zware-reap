@@ -21,7 +21,7 @@ public class ZWare {
 
     public static Minecraft mc = Minecraft.getMinecraft();
 
-    public static String commandsPrefix;
+    public static String commandsPrefix = ".";
 
     public static ForgeEvents forgeEvents;
     public static ModuleManager moduleManager;
