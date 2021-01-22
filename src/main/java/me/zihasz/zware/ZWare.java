@@ -1,6 +1,5 @@
 package me.zihasz.zware;
 
-import akka.io.Tcp;
 import me.yagel15637.blitz.dispatcher.EventDispatcher;
 import me.yagel15637.venture.manager.CommandManager;
 import me.zihasz.zware.api.event.ForgeEvents;
@@ -12,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.lwjgl.opengl.Display;
 
 @Mod(modid = ZWare.MOD_ID, name = ZWare.MOD_NAME, version = ZWare.VERSION)
 public class ZWare {
@@ -63,6 +63,6 @@ public class ZWare {
      */
     @Mod.EventHandler
     public void postinit(FMLPostInitializationEvent event) {
-
+        Display.setTitle(MOD_NAME + " " + VERSION);
     }
 }

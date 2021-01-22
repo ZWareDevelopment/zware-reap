@@ -65,6 +65,13 @@ public abstract class Module {
         return drawn;
     }
 
+    public ArrayList<Setting<?>> getSettings() {
+        return settings;
+    }
+    public Setting<?> getModuleByName(String name) {
+        return settings.stream().filter(setting -> setting.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+    }
+
     // Setters
     public void setBind(int bind){
         this.bind = bind;
@@ -74,10 +81,10 @@ public abstract class Module {
     }
 
     // "Events"
-    public void onEnable() {}
-    public void onDisable()  {}
-    public void onUpdate() {}
-    public void onRender() {}
+    public void onEnable()  {}
+    public void onDisable() {}
+    public void onUpdate()  {}
+    public void onRender()  {}
 
     // Misc
     public String   getHudInfo() {
@@ -87,14 +94,20 @@ public abstract class Module {
         return mc.player == null || mc.world == null;
     }
 
+    public Setting register(Setting setting) {
+        this.settings.add(setting);
+        return setting;
+    }
+
     // Category
     public enum Category {
+        CLIENT,
         CHAT,
         COMBAT,
-        PLAYER,
-        MOVEMENT,
         EXPLOIT,
         MISC,
-        CLIENT
+        MOVEMENT,
+        PLAYER,
+        RENDER
     }
 }

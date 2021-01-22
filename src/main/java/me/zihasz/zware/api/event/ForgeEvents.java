@@ -21,7 +21,7 @@ public class ForgeEvents {
     public void onKeyInput(InputEvent.KeyInputEvent event) {
         if (Keyboard.getEventKeyState()) {
             if (Keyboard.getEventKey() == Keyboard.KEY_NONE || Keyboard.getEventKey() == Keyboard.CHAR_NONE) return;
-            for (Module modules : ModuleManager.getModules()) {
+            for (Module modules : ZWare.moduleManager.getModules()) {
                 if (modules.getBind() == Keyboard.getEventKey()) {
                     modules.toggle();
                 }

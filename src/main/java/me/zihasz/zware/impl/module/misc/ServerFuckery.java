@@ -12,8 +12,10 @@ public class ServerFuckery extends Module {
 
     @Override
     public void onUpdate() {
-        super.onUpdate();
-        mc.networkManager.sendPacket(new CPacketLoginStart(mc.session.getProfile()));
-        mc.networkManager.sendPacket(new C00Handshake(mc.serverName, mc.serverPort, EnumConnectionState.HANDSHAKING));
+        mc.networkManager.sendPacket(new C00Handshake(
+                mc.serverName,
+                mc.serverPort,
+                EnumConnectionState.LOGIN
+        ));
     }
 }

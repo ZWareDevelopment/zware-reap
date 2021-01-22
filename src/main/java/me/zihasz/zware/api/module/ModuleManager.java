@@ -3,6 +3,7 @@ package me.zihasz.zware.api.module;
 import me.zihasz.zware.ZWare;
 import me.zihasz.zware.impl.module.client.*;
 import me.zihasz.zware.impl.module.misc.ServerFuckery;
+import me.zihasz.zware.impl.module.misc.Test;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,7 @@ public class ModuleManager {
         ZWare.EVENT_BUS.register(this);
 
         addMod(new ClickGUIModule());
+        addMod(new Test());
         addMod(new ServerFuckery());
     }
 
@@ -27,7 +29,7 @@ public class ModuleManager {
         modules.stream().filter(Module::getEnabled).forEach(Module::onRender);
     }
 
-    public static ArrayList<Module> getModules() {
+    public ArrayList<Module> getModules() {
         return modules;
     }
 
