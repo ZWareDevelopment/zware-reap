@@ -1,6 +1,6 @@
 package me.zihasz.zware.api.mixin.mixins;
 
-import me.yagel15637.blitz.modifiers.EventEra;
+import club.cafedevelopment.blitz.modifiers.EventEra;
 import me.zihasz.zware.ZWare;
 import me.zihasz.zware.api.event.events.PacketEvent;
 

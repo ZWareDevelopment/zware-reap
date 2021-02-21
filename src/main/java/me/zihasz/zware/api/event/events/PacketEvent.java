@@ -1,7 +1,8 @@
 package me.zihasz.zware.api.event.events;
 
-import me.yagel15637.blitz.modifiers.EventEra;
-import me.yagel15637.blitz.event.Event;
+import club.cafedevelopment.blitz.event.Event;
+
+import club.cafedevelopment.blitz.modifiers.EventEra;
 import net.minecraft.network.Packet;
 
 public class PacketEvent extends Event {

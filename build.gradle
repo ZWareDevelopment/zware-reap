@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url = 'http://repo.spongepowered.org/maven' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         jcenter()
         mavenCentral()
     }
@@ -30,7 +30,7 @@ minecraft {
 }
 
 repositories {
-    maven { url = 'http://repo.spongepowered.org/maven/' }
+    maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     maven { url = "https://jitpack.io" }
     mavenCentral()
     jcenter()
@@ -38,8 +38,9 @@ repositories {
 
 dependencies {
     compile 'club.minnced:java-discord-rpc:2.0.1'
-    compile 'com.github.CafeDevelopment:Blitz:2.0-SNAPSHOT'
+    compile 'com.github.CafeDevelopment:Blitz:3.0-SNAPSHOT'
     compile 'com.github.CafeDevelopment:Venture:2.0-SNAPSHOT'
+    compile 'com.github.ZihaszDevelopment:Hyperion:2.1'
     compile 'com.googlecode.json-simple:json-simple:1.1.1'
     compile("org.spongepowered:mixin:0.7.4-SNAPSHOT") {
         exclude module: 'launchwrapper'
@@ -77,6 +78,7 @@ shadowJar {
 
         include(dependency('com.github.yagel15637:blitz'))
         include(dependency('com.github.yagel15637:venture'))
+        include(dependency('com.github.zihasz:hyperion'))
 
         include(dependency('com.googlecode.json-simple:json-simple:1.1.1'))
 
@@ -105,7 +107,7 @@ jar {
             'tweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
             'TweakOrder': 0,
             'FMLCorePluginContainsFMLMod': 'true',
-            'FMLCorePlugin': 'me.zihasz.zware.ZWare',
+            'FMLCorePlugin': 'me.zihasz.zware.api.mixin.MixinLoader',
             'ForceLoadAsMod': 'true',
             'FMLAT': 'zware_at.cfg'
     )

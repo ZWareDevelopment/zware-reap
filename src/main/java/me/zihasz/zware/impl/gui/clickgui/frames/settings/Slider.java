@@ -9,9 +9,9 @@ import java.awt.*;
 
 public class Slider extends FrameSetting {
 
-    private Setting<? extends Number> setting;
+    private Setting<Number> setting;
 
-    public Slider(FrameButton parent, int x, int y, Setting<? extends Number> setting) {
+    public Slider(FrameButton parent, int x, int y, Setting<Number> setting) {
         this.x = x;
         this.y = y;
         this.width = 100;

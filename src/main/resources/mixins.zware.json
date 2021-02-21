@@ -5,6 +5,6 @@
   "refmap": "mixins.cafe.refmap.json",
   "mixins": [
     "MixinNetworkManager",
-    "MixinGuiMainMenu"
+    "MixinPlayerControllerMP"
   ]
 }

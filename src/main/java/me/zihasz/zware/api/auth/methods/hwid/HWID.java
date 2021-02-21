@@ -1,12 +1,13 @@
 package me.zihasz.zware.api.auth.methods.hwid;
 
 import java.net.NetworkInterface;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import me.zihasz.zware.api.auth.encryption.SHA;
+import dev.zihasz.hyperion.impl.hashing.SHA256;
 
 public class HWID {
-    private static String hwid;
+    private String hwid;
 
     public HWID() {
         try {
@@ -15,7 +16,7 @@ public class HWID {
         catch (Exception ignored) {}
     }
 
-    public static String genHWID() throws Exception {
+    public String genHWID() throws Exception {
         String data1 = System.getProperty("os.name") + System.getProperty("os.ver") + System.getProperty("os.arch");
         String data2 = System.getProperty("user.name");
         String data3 = Base64.getEncoder().encodeToString((data1 + "-" + data2).getBytes());
@@ -38,10 +39,12 @@ public class HWID {
 
         // byte[] temp2 = Integer.toString(temp).getBytes();
         // byte[] temp3 = SHA.hash(temp2);
-        return Base64.getEncoder().encodeToString(SHA.hash(Integer.toString(var1).getBytes()));
+        SHA256 sha256 = new SHA256();
+
+        return Base64.getEncoder().encodeToString(sha256.hash(Integer.toString(var1)).getBytes(StandardCharsets.UTF_8));
     }
 
-    public static String getHwid() {
+    public String getHwid() {
         return hwid;
     }
 }

@@ -9,11 +9,11 @@ import java.awt.*;
 
 public class TextInput extends FrameSetting {
 
-    private Setting<? extends String> setting;
+    private Setting<String> setting;
     private boolean active = false;
     private String content = "";
 
-    public TextInput(FrameButton parent, int x, int y, Setting<? extends String> setting) {
+    public TextInput(FrameButton parent, int x, int y, Setting<String> setting) {
         this.x = x;
         this.y = y;
         this.width = 100;

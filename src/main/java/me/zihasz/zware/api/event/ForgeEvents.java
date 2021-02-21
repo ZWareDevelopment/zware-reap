@@ -8,6 +8,7 @@ import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
 public class ForgeEvents {
@@ -38,5 +39,10 @@ public class ForgeEvents {
             event.setCanceled(true);
             // ZWare.mc.ingameGUI.getChatGUI().addToSentMessages(event.getMessage());
         }
+    }
+
+    @SubscribeEvent
+    public void onTick(TickEvent.ClientTickEvent event) {
+        ZWare.moduleManager.onUpdate();
     }
 }

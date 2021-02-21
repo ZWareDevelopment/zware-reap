@@ -38,10 +38,11 @@ public class FrameButton {
         int sOffset = 20;
         for (Setting<?> setting : module.getSettings()) {
             // if (setting.getValue() instanceof Color)        settings.add(new RGB        ());
-            if (setting.getValue() instanceof String)       settings.add(new TextInput  (this, this.x + this.width, this.y + sOffset, (Setting<? extends String>)  setting));
-            if (setting.getValue() instanceof Enum<?>)      settings.add(new Mode       (this, this.x + this.width, this.y + sOffset, (Setting<? extends Enum<?>>) setting));
-            if (setting.getValue() instanceof Number)       settings.add(new Slider     (this, this.x + this.width, this.y + sOffset, (Setting<? extends Number>)  setting));
-            if (setting.getValue() instanceof Boolean)      settings.add(new Toggle     (this, this.x + this.width, this.y + sOffset, (Setting<? extends Boolean>) setting));
+                                                                                                                                        // CODE
+            if (setting.getValue() instanceof String)       settings.add(new TextInput  (this, this.x + this.width, this.y + sOffset, (Setting<String>)  setting));
+            if (setting.getValue() instanceof Enum<?>)      settings.add(new Mode       (this, this.x + this.width, this.y + sOffset, (Setting<Enum<?>>) setting));
+            if (setting.getValue() instanceof Number)       settings.add(new Slider     (this, this.x + this.width, this.y + sOffset, (Setting<Number>)  setting));
+            if (setting.getValue() instanceof Boolean)      settings.add(new Toggle     (this, this.x + this.width, this.y + sOffset, (Setting<Boolean>) setting));
             sOffset += 20;
         }
     }
