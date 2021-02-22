@@ -17,65 +17,60 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ModuleManager {
-    public ArrayList<Module> modules;
+
+    private final ArrayList<Module> modules = new ArrayList<Module>();
     // public HashMap<String, Module> modules;
 
 
     public ModuleManager() {
-        modules = new ArrayList<Module>();
 
         // Chat
-        addMod(new ChatSuffix());
-        addMod(new MessageTest());
+        modules.add(new ChatSuffix());
+        modules.add(new MessageTest());
 
         // Client
-        addMod(new ClickGUIModule());
-        addMod(new DiscordRPCModule());
-        // addMod(new HUDEditorModule());
+        modules.add(new ClickGUIModule());
+        modules.add(new DiscordRPCModule());
+        // modules.add(new HUDEditorModule());
 
         // Combat
-        addMod(new Aura());
-        addMod(new AutoAnvil());
-        addMod(new AutoCreeper());
-        addMod(new AutoCrystal());
-        addMod(new Burrow());
-        addMod(new PotionAura());
-        addMod(new TargetModule());
+        modules.add(new Aura());
+        modules.add(new AutoAnvil());
+        modules.add(new AutoCreeper());
+        modules.add(new AutoCrystal());
+        modules.add(new Burrow());
+        modules.add(new PotionAura());
+        modules.add(new TargetModule());
 
         // Exploit
-        addMod(new HandShakeSpam());
-        // addMod(new KeepDead());
-        addMod(new OffhandCrash());
+        modules.add(new HandShakeSpam());
+        // modules.add(new KeepDead());
+        modules.add(new OffhandCrash());
 
         // Misc
-        addMod(new AutoPorn());
-        addMod(new FakePlayer());
-        addMod(new PingBypass());
+        modules.add(new AutoPorn());
+        modules.add(new FakePlayer());
+        modules.add(new PingBypass());
 
         // Movement
-        addMod(new LookDown());
-        addMod(new ReverseStep());
-        addMod(new Sprint());
+        modules.add(new LookDown());
+        modules.add(new ReverseStep());
+        modules.add(new Sprint());
 
         // Player
-        addMod(new FastPlace());
-        addMod(new Speedmine());
+        modules.add(new FastPlace());
+        modules.add(new Speedmine());
 
         // Render
-        addMod(new FullBright());
-        addMod(new GlowESP());
-
-        ZWare.EVENT_BUS.register(this);
+        modules.add(new FullBright());
+        modules.add(new GlowESP());
     }
 
-    public void addMod(Module module) {
-        //changed
-        //this.modules.add(module);
-    }
 
     public void onUpdate() {
         modules.stream().filter(Module::getEnabled).forEach(Module::onUpdate);
     }
+
     public void onRender() {
         modules.stream().filter(Module::getEnabled).forEach(Module::onRender);
     }
@@ -87,12 +82,13 @@ public class ModuleManager {
     public Module getModuleByName(String name) {
         return modules.stream().filter(module -> module.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
+
     public Module getModuleByClass(Class classIn) {
         return modules.stream().filter(module -> module.getClass() == classIn).findFirst().orElse(null);
     }
 
     public boolean isModuleEnabled(String name) {
-        Module module = getModules().stream().filter(mm->mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
+        Module module = getModules().stream().filter(mm -> mm.getName().equalsIgnoreCase(name)).findFirst().orElse(null);
         assert module != null;
         return module.getEnabled();
     }
